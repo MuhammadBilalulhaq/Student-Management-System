@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student-profile</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="./dashboard.html">
+            Student Management System
+        </a>
+
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link text-white active" aria-current="page" href="./dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="./student-profile.html">Student Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="./students.html">Students</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="./Login.html">Logout</a>
+            </li>
+        </ul>
+
+        <span class="text-white">
+            Welcome Ali
+        </span>
+    </div>
+</nav>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-4">
+                <h1>Student Profile</h1>
+            </div>
+            <div class="col-8">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-11"></div>
+                        <div class="col-1">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+  Filter
+</button>
+
+<div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="staticBackdropLabel">Filter Students</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <form class="row g-3" id="filterForm">
+
+      <div class="col-12">
+        <label for="filterBatch" class="form-label fw-bold">Batch #</label>
+        <select class="form-select" id="filterBatch">
+          <option value="" selected>All Batches</option>
+          <option value="20">Batch 20</option>
+          <option value="21">Batch 21</option>
+          <option value="22">Batch 22</option>
+          <option value="23">Batch 23</option>
+        </select>
+      </div>
+
+      <div class="col-12">
+        <label class="form-label fw-bold d-block">Gender</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="filterGender" id="genderAll" value="" checked>
+          <label class="form-check-label" for="genderAll">All</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="filterGender" id="genderMale" value="male">
+          <label class="form-check-label" for="genderMale">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="filterGender" id="genderFemale" value="female">
+          <label class="form-check-label" for="genderFemale">Female</label>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label for="filterAge" class="form-label fw-bold">Age</label>
+        <input type="range" class="form-range" min="16" max="50" value="25" id="filterAge">
+        <div class="form-text text-center" id="filterAgeOutput">Up to 25 years</div>
+      </div>
+
+      <div class="col-12">
+        <label class="form-label fw-bold d-block">Fees</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="filterFees" id="feesAll" value="" checked>
+          <label class="form-check-label" for="feesAll">All</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="filterFees" id="feesPaid" value="paid">
+          <label class="form-check-label" for="feesPaid">Paid</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="filterFees" id="feesUnpaid" value="unpaid">
+          <label class="form-check-label" for="feesUnpaid">Unpaid</label>
+        </div>
+      </div>
+
+      <div class="col-12 mt-4 d-grid">
+        <button type="submit" class="btn btn-primary rounded-pill">Apply</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-11"></div>
+                        <div class="col-1">
+
+                            <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Edit</button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Edit Student Profile</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+
+<form class="row g-3">
+  <div class="col-md-6">
+    <label for="inputName4" class="form-label">Name</label>
+    <input type="text" class="form-control" id="inputName4">
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input type="email" class="form-control" id="inputEmail4">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="e.g., Batch 22">
+  </div>
+  
+  <div class="mb-3">
+  <label for="profilePic" class="form-label">Upload Profile Picture</label>
+  <input class="form-control" type="file" id="profilePic" accept="image/*">
+</div>
+
+
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+
+  </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-2">
+        <div class="row align-items-center">
+            <div class="col-4">
+                <div class="card bg-primary-subtle p-2" style="width: 12rem;">
+                    <img src="./assets/student1.jpg" class="rounded-circle" alt="Student profile photo">
+                </div>
+            </div>
+            <div class="col-8"></div>
+        </div>
+    </div>
+
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-4">
+                <h1>Ali</h1>
+            </div>
+            <div class="col-8"></div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-assignments-tab" data-bs-toggle="pill" data-bs-target="#pills-assignments" type="button" role="tab" aria-controls="pills-assignments" aria-selected="true">Assignments</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-quizes-tab" data-bs-toggle="pill" data-bs-target="#pills-quizes" type="button" role="tab" aria-controls="pills-quizes" aria-selected="false">Quizes</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-attendance-tab" data-bs-toggle="pill" data-bs-target="#pills-attendance" type="button" role="tab" aria-controls="pills-attendance" aria-selected="false">Attendance</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-assignments" role="tabpanel" aria-labelledby="pills-assignments-tab" tabindex="0">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Topics</th>
+                            <th scope="col">Deadline</th>
+                            <th scope="col">Submitted Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Binary Search Tree Implementation</td>
+                            <td>Data Structures &amp; Algorithms</td>
+                            <td>2026-07-20</td>
+                            <td>2026-07-19</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Entity-Relationship Diagram</td>
+                            <td>Database Systems</td>
+                            <td>2026-07-22</td>
+                            <td>2026-07-21</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>REST API with Authentication</td>
+                            <td>Web Engineering</td>
+                            <td>2026-07-27</td>
+                            <td>&mdash;</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Unit &amp; Integration Test Suite</td>
+                            <td>Software Testing</td>
+                            <td>2026-07-30</td>
+                            <td>&mdash;</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>Process Scheduling Simulator</td>
+                            <td>Operating Systems</td>
+                            <td>2026-08-02</td>
+                            <td>&mdash;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tab-pane fade" id="pills-quizes" role="tabpanel" aria-labelledby="pills-quizes-tab" tabindex="0">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Quiz Title</th>
+                            <th scope="col">Topic</th>
+                            <th scope="col">Score</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Time Complexity Basics</td>
+                            <td>Data Structures &amp; Algorithms</td>
+                            <td>9/10</td>
+                            <td>2026-07-10</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Normalization Forms</td>
+                            <td>Database Systems</td>
+                            <td>7/10</td>
+                            <td>2026-07-14</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>OOP Principles</td>
+                            <td>Object-Oriented Programming</td>
+                            <td>10/10</td>
+                            <td>2026-07-17</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>HTTP &amp; REST Fundamentals</td>
+                            <td>Web Engineering</td>
+                            <td>8/10</td>
+                            <td>2026-07-18</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>Agile &amp; Scrum</td>
+                            <td>Software Project Management</td>
+                            <td>&mdash;</td>
+                            <td>Upcoming</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tab-pane fade" id="pills-attendance" role="tabpanel" aria-labelledby="pills-attendance-tab" tabindex="0">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Course</th>
+                            <th scope="col">Session</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>2026-07-14</td>
+                            <td>Data Structures &amp; Algorithms</td>
+                            <td>Lecture</td>
+                            <td><span class="badge text-bg-success">Present</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>2026-07-15</td>
+                            <td>Database Systems</td>
+                            <td>Lab</td>
+                            <td><span class="badge text-bg-success">Present</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>2026-07-16</td>
+                            <td>Software Testing</td>
+                            <td>Lecture</td>
+                            <td><span class="badge text-bg-warning text-dark">Late</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>2026-07-17</td>
+                            <td>Operating Systems</td>
+                            <td>Lecture</td>
+                            <td><span class="badge text-bg-danger">Absent</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>2026-07-18</td>
+                            <td>Web Engineering</td>
+                            <td>Lab</td>
+                            <td><span class="badge text-bg-success">Present</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const filterAgeInput = document.getElementById('filterAge');
+        const filterAgeOutput = document.getElementById('filterAgeOutput');
+        if (filterAgeInput && filterAgeOutput) {
+            filterAgeInput.addEventListener('input', () => {
+                filterAgeOutput.textContent = `Up to ${filterAgeInput.value} years`;
+            });
+        }
+
+        const filterForm = document.getElementById('filterForm');
+        if (filterForm) {
+            filterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Hook your actual filtering logic here
+                const staticBackdropEl = document.getElementById('staticBackdrop');
+                const offcanvasInstance = bootstrap.Offcanvas.getInstance(staticBackdropEl);
+                if (offcanvasInstance) offcanvasInstance.hide();
+            });
+        }
+    </script>
+</body>
+</html>

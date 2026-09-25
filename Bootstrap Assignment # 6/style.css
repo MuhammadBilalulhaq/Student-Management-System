@@ -1,0 +1,15 @@
+.login-height{
+    height: calc(100vh - 70px);
+}
+
+.card{
+    border-radius:12px;
+}
+
+table{
+    text-align:center;
+}
+
+th{
+    text-align:center;
+}
